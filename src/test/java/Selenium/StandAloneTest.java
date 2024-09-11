@@ -11,8 +11,6 @@ package Selenium;
 import java.time.Duration;
 import java.util.List;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.openqa.selenium.By;
@@ -30,13 +28,13 @@ public class StandAloneTest {
 		//credentials to sign in: email: seleniumhandson@gmail.com; password: Selenium@9
 		driver.manage().window().maximize();
 		
-		WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(5));
+		WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(5)); //explict wait
 		
 		driver.findElement(By.id("userEmail")).sendKeys("seleniumhandson@gmail.com");
 		driver.findElement(By.id("userPassword")).sendKeys("Selenium@9");
 		driver.findElement(By.id("login")).click();
 		
-		
+		//WebDriverWait(driver,Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='card-body']/h5/b")));
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='card-body']/h5/b")));
 		
